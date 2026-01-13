@@ -1,0 +1,5 @@
+package com.example.category_server.repo;
+
+public class CategoryRepository extends Jpareposi {
+
+}

@@ -1,0 +1,5 @@
+package com.example.apigateway_server.Config;
+
+public class GatewayConfig {
+
+}

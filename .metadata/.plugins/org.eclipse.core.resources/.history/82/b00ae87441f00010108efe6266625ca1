@@ -1,0 +1,5 @@
+package com.example.category_server.serviceImpl;
+
+public class CategoryServiceImpl {
+
+}

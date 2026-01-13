@@ -1,0 +1,19 @@
+spring:
+ application: 
+  name: apigateway-server
+server: 
+ port: 8084
+
+ spring:
+  cloud:
+    gateway:
+      routes:
+        - id: category-server
+          uri: http://localhost:8085
+          predicates:
+            - Path=/category/**
+
+        - id: expenses-server
+          uri: http://localhost:8082
+          predicates:
+            - Path=/expenses/**
