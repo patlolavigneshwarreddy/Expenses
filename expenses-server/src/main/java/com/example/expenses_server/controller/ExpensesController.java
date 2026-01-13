@@ -1,20 +1,31 @@
 package com.example.expenses_server.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.example.expenses_server.controller.service.ExpensesService;
+import com.example.expenses_server.entity.Expenses;
 
 @RestController
 @RequestMapping("expenses")
 public class ExpensesController {
 
+	@Autowired
+	ExpensesService expensesService;
+	
 	@PostMapping()
-	public String addexpenses() {
-	//implement your code
-		return "add expenses";
+	public ResponseEntity<Expenses> addexpenses(@RequestBody Expenses expenses) {
+	expensesService.addexpenses(expenses);
+		return new ResponseEntity<Expenses>(expenses, HttpStatus.CREATED);
 	}
 	
 	
@@ -23,6 +34,15 @@ public class ExpensesController {
 	//implement your code
 		return "edit expenses";
 	}
+	
+	 @PutMapping("/{id}")
+	    public ResponseEntity<Expenses> updateExpense(
+	            @PathVariable Long id,
+	            @RequestBody Expenses updatedExpense) {
+
+	        Expenses expense = expensesService.updateExpense(id, updatedExpense);
+	        return ResponseEntity.ok(expense);
+	    }
 	
 	@GetMapping("/{id}")
 	public String getbyIdexpenses() {
