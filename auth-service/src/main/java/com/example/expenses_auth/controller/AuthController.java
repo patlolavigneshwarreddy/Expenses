@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.expenses_auth.security.CustomUserDetails;
 import com.example.expenses_auth.security.JwtUtil;
 
-
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
