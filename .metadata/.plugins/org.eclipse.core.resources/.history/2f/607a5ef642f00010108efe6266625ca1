@@ -1,7 +1,0 @@
-package com.example.category_server.serviceImpl;
-
-import com.example.category_server.service.CategoryService;
-
-public class CategoryServiceImpl implements CategoryService {
-
-}
