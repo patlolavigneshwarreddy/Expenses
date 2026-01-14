@@ -2,7 +2,7 @@ spring:
  application:
   name: auth-service
  config:
-    import: optional:configserver:http://localhost:8080
+    import: optional:configserver:http://localhost:8888
 #.....................local values..............
 # datasource:
 #  url: jdbc:mysql://localhost:3306/expense_auth?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
